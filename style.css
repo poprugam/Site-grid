@@ -1,25 +1,67 @@
 .cards-grid{
     display: grid;
+    justify-content: center;
+    background-color: #000;
+    color: #000;
     gap: 20px;
-    grid-template-columns: repeat(4, 260px);
+    grid-template-columns: repeat(4, minmax(200px, 260px));
     grid-template-rows: repeat(4, 180px);
+    grid-auto-rows: 380px;
     grid-template-areas: 
         "wide1 wide1 Product-1 Product-2"
         "wide2 wide2 Product-1 Product-2"
         "Product-3 Product-4 wide3 wide3"
-        "Product-3 Product-4 wide4 wide4" ;
+        "Product-3 Product-4 wide4 wide4";
 }
 .card-demo{
-    background-color: bisque;
+    background-color: #fff;
+    text-align: center;
+    margin-top: 20px;
 }
-
 .sale-1{ grid-area: wide1;}
 .sale-2{ grid-area: wide2;}
-.Product-1{ grid-area: Product-1;}
-.Product-2{ grid-area: Product-2;}
-
-.Product-3{ grid-area: Product-3;}
-.Product-4{ grid-area: Product-4;}
 .sale-3{ grid-area: wide3;}
 .sale-4{ grid-area: wide4;}
 
+.Product-1{ grid-area: Product-1;}
+.Product-2{ grid-area: Product-2;}
+.Product-3{ grid-area: Product-3;}
+.Product-4{ grid-area: Product-4;}
+
+@media (max-width: 1130px) {
+    .cards-grid{
+        grid-template-columns: repeat(2, minmax(180px, 260px));
+        grid-template-rows: repeat(8, 180px);
+        grid-auto-rows: 380px;
+        grid-template-areas: 
+            "wide1 wide1" 
+            "wide2 wide2"
+            "Product-1 Product-2"
+            "Product-1 Product-2"
+            "wide3 wide3" 
+            "wide4 wide4"
+            "Product-3 Product-4"
+            "Product-3 Product-4";
+    }
+}
+@media (max-width: 590px) {
+    .cards-grid{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 140px);
+        width: 100%;
+        grid-auto-rows: 300px;
+        grid-template-areas: 
+            "wide1" 
+            "wide2"
+            "Product-1"
+            "Product-1"
+            "Product-2"
+            "Product-2"
+            "wide3" 
+            "wide4"
+            "Product-3"
+            "Product-3"
+            "Product-4"
+            "Product-4";
+    }
+}
